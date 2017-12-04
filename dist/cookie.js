@@ -1,17 +1,25 @@
-
 /* Cookies main */
 var Cookies = window.Cookies || {};
 
 /* Function Set a cookie */
-function setCookie(name, value, days) {
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        var expires = "; expires=" + date.toGMTString();
-    }
-    else var expires = "";               
+function setCookie(name, value, options) {
+    var expires = "";
+    var path = "/"
 
-    document.cookie = name + "=" + value + expires + "; path=/";
+    if(options) {
+        if (options.expires) {
+            var days = options.expires
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toGMTString();
+        }
+
+        if (options.path) {
+            path = options.path
+        }
+    }
+
+    document.cookie = name + "=" + value + expires + "; path=" + path;
 }
 
 /* Funtion Get a cookie */
