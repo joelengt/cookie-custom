@@ -11,7 +11,7 @@
 
     /* ECS5 */
     Cookies.set('neko','my name')
-    Cookies.set('usagi','my name', 5)
+    Cookies.set('usagi','my name', { expires: 5 })
     Cookies.get('neko')
     Cookies.delete('neko')
 
@@ -23,7 +23,7 @@
 
     /* set json */
     var valueJSON = JSON.stringify(obj)
-    Cookies.set('human', valueJSON, 10)
+    Cookies.set('human', valueJSON, { expires: 5, path: '/' })
     Cookies.set('human_data', valueJSON)
 
     /* get json */
