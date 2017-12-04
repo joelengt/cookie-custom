@@ -6,10 +6,9 @@ custom cookie library
 
 ``js
   Cookies.set('neko','my name');
-  
   Cookies.set('usagi','my name', { expires: 5 });
   Cookies.get('neko');
-  Cookies.delete('neko'):
+  Cookies.delete('neko');
 ``
 
 /* with json */
